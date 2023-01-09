@@ -112,6 +112,25 @@ namespace RegistroTareas
         {
 
         }
+        private void button5_Click(object sender, EventArgs e)
+        {
+            // Preguntamos al usuario con una ventana emergente si está seguro que desea eliminar el elemento seleccionado, si pulsa sobre "No" se cancela la acción
+            DialogResult dialogResult = MessageBox.Show("¿Está seguro que desea eliminar el elemento seleccionado?", "Eliminar elemento", MessageBoxButtons.YesNo);
+
+            // Si el usuario ha pulsado que si, se elimina el elemento seleccionado
+            if (dialogResult == DialogResult.Yes)
+            {
+                // Eliminamos el elemento anterior al que hemos seleccionado en la lista y tambien el que hemos seleccionado
+                listBox2.Items.RemoveAt(listBox2.SelectedIndex - 1);
+                listBox2.Items.Remove(listBox2.SelectedItem);
+
+                // Sobreescritura de archivo
+                string[] elementosLista = new string[listBox2.Items.Count];
+                listBox2.Items.CopyTo(elementosLista, 0);
+                
+                File.WriteAllLines("RegistroTareas\\" + "tareasPendientes.txt", elementosLista); // Creamos el archivo de texto con la fecha y hora actual
+            }
+        }
         private void button2_Click(object sender, EventArgs e) //Botón que elimina el elemento seleccionado de la lista de completados
         {
             // Preguntamos al usuario con una ventana emergente si está seguro que desea eliminar el elemento seleccionado, si pulsa sobre "No" se cancela la acción
@@ -137,18 +156,17 @@ namespace RegistroTareas
                     File.WriteAllLines("RegistroTareas\\" + date + ".txt", elementosLista); // Creamos el archivo de texto con la fecha y hora actual
             }
         }
-        private void button3_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e) //Boton para abrir la carpeta contenedora de las tareas
         {
-
             // Abrimos la carpeta del registro de tareas en explorer.exe
             string rutaCarpeta = "RegistroTareas";
             Process.Start("explorer.exe", rutaCarpeta);
-
-
         }
         private void label3_Click(object sender, EventArgs e)
         {
 
         }
+
+
     }   
 }
