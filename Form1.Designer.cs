@@ -63,7 +63,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(368, 29);
+            this.button1.Location = new System.Drawing.Point(369, 58);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(110, 23);
             this.button1.TabIndex = 2;
@@ -94,9 +94,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(367, 336);
+            this.button2.Location = new System.Drawing.Point(368, 336);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(111, 38);
+            this.button2.Size = new System.Drawing.Size(109, 38);
             this.button2.TabIndex = 5;
             this.button2.Text = "Eliminar Tarea Completada";
             this.button2.UseVisualStyleBackColor = true;
@@ -105,7 +105,7 @@
             // button3
             // 
             this.button3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button3.Location = new System.Drawing.Point(367, 87);
+            this.button3.Location = new System.Drawing.Point(368, 87);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(111, 23);
             this.button3.TabIndex = 6;
@@ -126,7 +126,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(368, 58);
+            this.button4.Location = new System.Drawing.Point(367, 29);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(110, 23);
             this.button4.TabIndex = 8;
@@ -146,9 +146,9 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(367, 175);
+            this.button5.Location = new System.Drawing.Point(368, 169);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(111, 45);
+            this.button5.Size = new System.Drawing.Size(109, 45);
             this.button5.TabIndex = 10;
             this.button5.Text = "Eliminar Tarea Pendiente";
             this.button5.UseVisualStyleBackColor = true;
