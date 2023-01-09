@@ -8,9 +8,10 @@ namespace RegistroTareas
     public partial class Form1 : Form
     {
         //Variables globales
-        
-        static string inputTareaCompletada = null;
+        static string inputTarea = null;
+        static string inputTareaPendiente = null;
         static string rutaCarpeta = "RegistroTareas";
+        static string rutaPendientes = rutaCarpeta + "\\tareasPendientes.txt";
 
         static string date = DateTime.Now.ToString("yyyy-MM-dd"); // Asignamos la fecha actual a la variable date
         static string time = DateTime.Now.ToString("HH:mm:ss"); // Asignamos la hora actual a la variable time
@@ -20,12 +21,18 @@ namespace RegistroTareas
             
         {
             InitializeComponent();
+            // Creamos la carpeta del registro de tareas si no existe
+            if (!Directory.Exists(rutaCarpeta))
+            {
+                Directory.CreateDirectory(rutaCarpeta);
+            }
 
             string rutaArchivo = "RegistroTareas\\" + date + ".txt";
             if (File.Exists(rutaArchivo))
             {
                 string[] elementos = File.ReadAllLines(rutaArchivo);
                 listBox1.Items.AddRange(elementos);
+                
             }
         }
 
@@ -38,14 +45,13 @@ namespace RegistroTareas
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e) //Campo de texto para ingresar tarea recien completada
+        private void textBox1_TextChanged(object sender, EventArgs e) //Campo de texto para ingresar tarea
         {
-            inputTareaCompletada = textBox1.Text;
+            inputTarea = textBox1.Text;
         }
-
-        private void button1_Click(object sender, EventArgs e) //Botón que añade la tarea del campo de texto
+        private void button1_Click(object sender, EventArgs e) //Botón que añade la tarea del campo de texto a completadas
         {
-            if (inputTareaCompletada == null) // Si el campo de texto está vacío, no se añade nada
+            if (inputTarea == null) // Si el campo de texto está vacío, no se añade nada
                {
                 MessageBox.Show("No se ha ingresado ninguna tarea");
             }
@@ -53,24 +59,47 @@ namespace RegistroTareas
             {
                 time = DateTime.Now.ToString("HH:mm:ss"); // Asignamos la hora actual a la variable time
                 listBox1.Items.Add(time); //Añadimos la hora actual al listado de tareas
-                listBox1.Items.Add(inputTareaCompletada);
+                listBox1.Items.Add(inputTarea);
                 textBox1.Text = ""; // Vacía el campo de texto
 
                 // Sobreescritura del archivo de texto con la nueva tarea añadida al listado de tareas 
                 string[] elementosLista = new string[listBox1.Items.Count];
                 listBox1.Items.CopyTo(elementosLista, 0);
 
-                // Creamos la carpeta del registro de tareas si no existe
-                if (!Directory.Exists(rutaCarpeta))
-                {
-                    Directory.CreateDirectory(rutaCarpeta);
-                }
+
                 string date = DateTime.Now.ToString("yyyy-MM-dd"); // Asignamos la fecha actual a la variable date
                 File.WriteAllLines("RegistroTareas\\" + date + ".txt", elementosLista); // Creamos el archivo de texto con la fecha y hora actual
             }
            
         }
+        private void button4_Click(object sender, EventArgs e) //Botón que añade la tarea del campo de texto a pendientes
+        {
+            
+            if (inputTarea == null) // Si el campo de texto está vacío, no se añade nada
+            {
+                MessageBox.Show("No se ha ingresado ninguna tarea");
+            }
+            else // Si el campo de texto está lleno, se añade la tarea al listado
+            {
+                time = DateTime.Now.ToString("HH:mm:ss"); // Asignamos la hora actual a la variable time
+                listBox2.Items.Add(time); //Añadimos la hora actual al listado de tareas
+                listBox2.Items.Add(inputTarea);
+                textBox1.Text = ""; // Vacía el campo de texto
 
+                // Sobreescritura del archivo de texto con la nueva tarea añadida al listado de tareas 
+                string[] elementosLista = new string[listBox2.Items.Count];
+                listBox2.Items.CopyTo(elementosLista, 0);
+
+                // Creamos el archivo de texto tareas pendientes si no existe
+                if (!File.Exists(rutaPendientes))
+                {
+                    File.Create(rutaPendientes);
+                }
+
+                string date = DateTime.Now.ToString("yyyy-MM-dd"); // Asignamos la fecha actual a la variable date
+                File.WriteAllLines("RegistroTareas\\" + date + ".txt", elementosLista); // Creamos el archivo de texto con la fecha y hora actual
+            }
+        }
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             
@@ -113,11 +142,6 @@ namespace RegistroTareas
         }
 
         private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
         }
