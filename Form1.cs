@@ -7,6 +7,7 @@ namespace RegistroTareas
 {
     public partial class Form1 : Form
     {
+        //Test uso de git en visual studio
         //Variables globales
         static string inputTarea = null;
         static string inputTareaPendiente = null;
