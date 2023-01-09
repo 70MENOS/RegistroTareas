@@ -40,6 +40,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.button5 = new System.Windows.Forms.Button();
+            this.splitter1 = new System.Windows.Forms.Splitter();
             this.SuspendLayout();
             // 
             // listBox1
@@ -98,7 +99,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(109, 38);
             this.button2.TabIndex = 5;
-            this.button2.Text = "Eliminar Tarea Completada";
+            this.button2.Text = "Eliminar Tarea Seleccionada";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -126,9 +127,9 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(367, 29);
+            this.button4.Location = new System.Drawing.Point(368, 29);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(110, 23);
+            this.button4.Size = new System.Drawing.Size(109, 23);
             this.button4.TabIndex = 8;
             this.button4.Text = "Tarea Pendiente";
             this.button4.UseVisualStyleBackColor = true;
@@ -150,16 +151,26 @@
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(109, 45);
             this.button5.TabIndex = 10;
-            this.button5.Text = "Eliminar Tarea Pendiente";
+            this.button5.Text = "Eliminar Tarea Seleccionada";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // splitter1
+            // 
+            this.splitter1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.splitter1.Location = new System.Drawing.Point(0, 525);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(1098, 149);
+            this.splitter1.TabIndex = 11;
+            this.splitter1.TabStop = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(484, 449);
+            this.ClientSize = new System.Drawing.Size(1098, 674);
+            this.Controls.Add(this.splitter1);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.listBox2);
             this.Controls.Add(this.button4);
@@ -192,5 +203,6 @@
         private Button button4;
         private ListBox listBox2;
         private Button button5;
+        private Splitter splitter1;
     }
 }

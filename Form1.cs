@@ -44,8 +44,6 @@ namespace RegistroTareas
                 string[] elementos = File.ReadAllLines("RegistroTareas\\" + "tareasPendientes.txt");
                 listBox2.Items.AddRange(elementos);
             }
-
-
         }
 
         private void label2_Click(object sender, EventArgs e) //Etiqueta del listado de tareas
