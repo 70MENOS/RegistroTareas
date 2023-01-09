@@ -7,6 +7,7 @@ namespace RegistroTareas
 {
     public partial class Form1 : Form
     {
+        //test
         //Variables globales
         static string inputTarea = null;
         static string inputTareaPendiente = null;
@@ -49,20 +50,20 @@ namespace RegistroTareas
         {
             inputTarea = textBox1.Text;
         }
-        private void button1_Click(object sender, EventArgs e) //BotÛn que aÒade la tarea del campo de texto a completadas
+        private void button1_Click(object sender, EventArgs e) //Bot√≥n que a√±ade la tarea del campo de texto a completadas
         {
-            if (inputTarea == null) // Si el campo de texto est· vacÌo, no se aÒade nada
+            if (inputTarea == null) // Si el campo de texto est√° vac√≠o, no se a√±ade nada
                {
                 MessageBox.Show("No se ha ingresado ninguna tarea");
             }
-            else // Si el campo de texto est· lleno, se aÒade la tarea al listado
+            else // Si el campo de texto est√° lleno, se a√±ade la tarea al listado
             {
                 time = DateTime.Now.ToString("HH:mm:ss"); // Asignamos la hora actual a la variable time
-                listBox1.Items.Add(time); //AÒadimos la hora actual al listado de tareas
+                listBox1.Items.Add(time); //A√±adimos la hora actual al listado de tareas
                 listBox1.Items.Add(inputTarea);
-                textBox1.Text = ""; // VacÌa el campo de texto
+                textBox1.Text = ""; // Vac√≠a el campo de texto
 
-                // Sobreescritura del archivo de texto con la nueva tarea aÒadida al listado de tareas 
+                // Sobreescritura del archivo de texto con la nueva tarea a√±adida al listado de tareas 
                 string[] elementosLista = new string[listBox1.Items.Count];
                 listBox1.Items.CopyTo(elementosLista, 0);
 
@@ -72,21 +73,21 @@ namespace RegistroTareas
             }
            
         }
-        private void button4_Click(object sender, EventArgs e) //BotÛn que aÒade la tarea del campo de texto a pendientes
+        private void button4_Click(object sender, EventArgs e) //Bot√≥n que a√±ade la tarea del campo de texto a pendientes
         {
             
-            if (inputTarea == null) // Si el campo de texto est· vacÌo, no se aÒade nada
+            if (inputTarea == null) // Si el campo de texto est√° vac√≠o, no se a√±ade nada
             {
                 MessageBox.Show("No se ha ingresado ninguna tarea");
             }
-            else // Si el campo de texto est· lleno, se aÒade la tarea al listado
+            else // Si el campo de texto est√° lleno, se a√±ade la tarea al listado
             {
                 time = DateTime.Now.ToString("HH:mm:ss"); // Asignamos la hora actual a la variable time
-                listBox2.Items.Add(time); //AÒadimos la hora actual al listado de tareas
+                listBox2.Items.Add(time); //A√±adimos la hora actual al listado de tareas
                 listBox2.Items.Add(inputTarea);
-                textBox1.Text = ""; // VacÌa el campo de texto
+                textBox1.Text = ""; // Vac√≠a el campo de texto
 
-                // Sobreescritura del archivo de texto con la nueva tarea aÒadida al listado de tareas 
+                // Sobreescritura del archivo de texto con la nueva tarea a√±adida al listado de tareas 
                 string[] elementosLista = new string[listBox2.Items.Count];
                 listBox2.Items.CopyTo(elementosLista, 0);
 
@@ -105,10 +106,10 @@ namespace RegistroTareas
             
         }
 
-        private void button2_Click(object sender, EventArgs e) //BotÛn que elimina el elemento seleccionado de la lista
+        private void button2_Click(object sender, EventArgs e) //Bot√≥n que elimina el elemento seleccionado de la lista
         {
-            // Preguntamos al usuario con una ventana emergente si est· seguro que desea eliminar el elemento seleccionado, si pulsa sobre "No" se cancela la acciÛn
-            DialogResult dialogResult = MessageBox.Show("øEst· seguro que desea eliminar el elemento seleccionado?", "Eliminar elemento", MessageBoxButtons.YesNo);
+            // Preguntamos al usuario con una ventana emergente si est√° seguro que desea eliminar el elemento seleccionado, si pulsa sobre "No" se cancela la acci√≥n
+            DialogResult dialogResult = MessageBox.Show("¬øEst√° seguro que desea eliminar el elemento seleccionado?", "Eliminar elemento", MessageBoxButtons.YesNo);
 
             // Si el usuario ha pulsado que si, se elimina el elemento seleccionado
             if (dialogResult == DialogResult.Yes)
