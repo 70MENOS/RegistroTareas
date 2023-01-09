@@ -26,25 +26,35 @@ namespace RegistroTareas
             {
                 Directory.CreateDirectory(rutaCarpeta);
             }
-
+            // Creamos el archivo de texto tareas pendientes si no existe
+            if (!File.Exists("RegistroTareas\\" + "tareasPendientes.txt"))
+            {
+                File.Create("RegistroTareas\\" + "tareasPendientes.txt");
+            }
+            
             string rutaArchivo = "RegistroTareas\\" + date + ".txt";
             if (File.Exists(rutaArchivo))
             {
                 string[] elementos = File.ReadAllLines(rutaArchivo);
                 listBox1.Items.AddRange(elementos);
-                
             }
+            string rutaPendientes = "RegistroTareas\\" + "tareasPendientes.txt";
+            if (File.Exists(rutaPendientes))
+            {
+                string[] elementos = File.ReadAllLines("RegistroTareas\\" + "tareasPendientes.txt");
+                listBox2.Items.AddRange(elementos);
+            }
+
+
         }
 
         private void label2_Click(object sender, EventArgs e) //Etiqueta del listado de tareas
         {
         }
-
         private void label1_Click(object sender, EventArgs e) //Etiqueta del input de tarea completada
         {
 
         }
-
         private void textBox1_TextChanged(object sender, EventArgs e) //Campo de texto para ingresar tarea
         {
             inputTarea = textBox1.Text;
@@ -81,31 +91,28 @@ namespace RegistroTareas
             }
             else // Si el campo de texto está lleno, se añade la tarea al listado
             {
+                 date = DateTime.Now.ToString("yyyy-MM-dd"); // Asignamos la fecha actual a la variable date
                 time = DateTime.Now.ToString("HH:mm:ss"); // Asignamos la hora actual a la variable time
-                listBox2.Items.Add(time); //Añadimos la hora actual al listado de tareas
+                listBox2.Items.Add(date); //Añadimos la hora actual al listado de tareas
                 listBox2.Items.Add(inputTarea);
                 textBox1.Text = ""; // Vacía el campo de texto
 
                 // Sobreescritura del archivo de texto con la nueva tarea añadida al listado de tareas 
                 string[] elementosLista = new string[listBox2.Items.Count];
                 listBox2.Items.CopyTo(elementosLista, 0);
-
-                // Creamos el archivo de texto tareas pendientes si no existe
-                if (!File.Exists(rutaPendientes))
-                {
-                    File.Create(rutaPendientes);
-                }
-
-                string date = DateTime.Now.ToString("yyyy-MM-dd"); // Asignamos la fecha actual a la variable date
-                File.WriteAllLines("RegistroTareas\\" + date + ".txt", elementosLista); // Creamos el archivo de texto con la fecha y hora actual
+                
+                File.WriteAllLines("RegistroTareas\\" + "tareasPendientes.txt", elementosLista); // Creamos el archivo de texto con la fecha y hora actual
             }
         }
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             
         }
+        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
-        private void button2_Click(object sender, EventArgs e) //Botón que elimina el elemento seleccionado de la lista
+        }
+        private void button2_Click(object sender, EventArgs e) //Botón que elimina el elemento seleccionado de la lista de completados
         {
             // Preguntamos al usuario con una ventana emergente si está seguro que desea eliminar el elemento seleccionado, si pulsa sobre "No" se cancela la acción
             DialogResult dialogResult = MessageBox.Show("¿Está seguro que desea eliminar el elemento seleccionado?", "Eliminar elemento", MessageBoxButtons.YesNo);
@@ -130,7 +137,6 @@ namespace RegistroTareas
                     File.WriteAllLines("RegistroTareas\\" + date + ".txt", elementosLista); // Creamos el archivo de texto con la fecha y hora actual
             }
         }
-
         private void button3_Click(object sender, EventArgs e)
         {
 
@@ -140,7 +146,6 @@ namespace RegistroTareas
 
 
         }
-
         private void label3_Click(object sender, EventArgs e)
         {
 

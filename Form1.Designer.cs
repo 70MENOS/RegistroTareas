@@ -37,8 +37,9 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.listBox2 = new System.Windows.Forms.ListBox();
             this.button4 = new System.Windows.Forms.Button();
+            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBox1
@@ -93,18 +94,18 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(368, 390);
+            this.button2.Location = new System.Drawing.Point(367, 336);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(111, 23);
+            this.button2.Size = new System.Drawing.Size(111, 38);
             this.button2.TabIndex = 5;
-            this.button2.Text = "Eliminar";
+            this.button2.Text = "Eliminar Tarea Completada";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
             this.button3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button3.Location = new System.Drawing.Point(368, 419);
+            this.button3.Location = new System.Drawing.Point(367, 87);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(111, 23);
             this.button3.TabIndex = 6;
@@ -123,16 +124,6 @@
             this.label3.Text = "Tareas Pendientes";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // listBox2
-            // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 15;
-            this.listBox2.Location = new System.Drawing.Point(12, 141);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(350, 109);
-            this.listBox2.TabIndex = 0;
-            this.listBox2.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
-            // 
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(368, 58);
@@ -143,12 +134,33 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // listBox2
+            // 
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.ItemHeight = 15;
+            this.listBox2.Location = new System.Drawing.Point(12, 141);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(350, 109);
+            this.listBox2.TabIndex = 9;
+            this.listBox2.SelectedIndexChanged += new System.EventHandler(this.listBox2_SelectedIndexChanged);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(367, 175);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(111, 45);
+            this.button5.TabIndex = 10;
+            this.button5.Text = "Eliminar Tarea Pendiente";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(484, 449);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.listBox2);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button3);
@@ -157,7 +169,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.listBox2);
             this.Controls.Add(this.listBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
@@ -177,7 +188,8 @@
         private Button button2;
         private Button button3;
         private Label label3;
-        private ListBox listBox2;
         private Button button4;
+        private ListBox listBox2;
+        private Button button5;
     }
 }
