@@ -76,9 +76,9 @@
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(141, 17);
+            this.label1.Size = new System.Drawing.Size(98, 17);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Escriba tarea completada";
+            this.label1.Text = "Escriba una tarea";
             // 
             // label2
             // 

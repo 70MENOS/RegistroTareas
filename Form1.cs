@@ -7,7 +7,6 @@ namespace RegistroTareas
 {
     public partial class Form1 : Form
     {
-        //test
         //Variables globales
         static string inputTarea = null;
         static string inputTareaPendiente = null;
