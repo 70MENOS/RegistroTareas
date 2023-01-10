@@ -25,25 +25,26 @@ namespace RegistroTareas
             if (!Directory.Exists(rutaCarpeta))
             {
                 Directory.CreateDirectory(rutaCarpeta);
-            }
-            // Creamos el archivo de texto tareas pendientes si no existe
-            if (!File.Exists("RegistroTareas\\" + "tareasPendientes.txt"))
-            {
-                File.Create("RegistroTareas\\" + "tareasPendientes.txt");
-            }
-            
+            }           
             string rutaArchivo = "RegistroTareas\\" + date + ".txt";
             if (File.Exists(rutaArchivo))
             {
                 string[] elementos = File.ReadAllLines(rutaArchivo);
                 listBox1.Items.AddRange(elementos);
             }
-            string rutaPendientes = "RegistroTareas\\" + "tareasPendientes.txt";
-            if (File.Exists(rutaPendientes))
+            string rutaPendientes = "RegistroTareas\\tareasPendientes.txt";
+
+            // If rutaPendientes not exists then create the file but if exists then read the file and add the items to the listbox2, but if it is opened exit if
+            if (!File.Exists(rutaPendientes))
             {
-                string[] elementos = File.ReadAllLines("RegistroTareas\\" + "tareasPendientes.txt");
+                File.Create(rutaPendientes);
+            }
+            else
+            {
+                string[] elementos = File.ReadAllLines(rutaPendientes);
                 listBox2.Items.AddRange(elementos);
             }
+            
         }
 
         private void label2_Click(object sender, EventArgs e) //Etiqueta del listado de tareas
@@ -165,6 +166,9 @@ namespace RegistroTareas
 
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
 
+        }
     }   
 }
